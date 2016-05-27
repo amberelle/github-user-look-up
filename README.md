@@ -20,3 +20,5 @@ npm install bower --save
 Important Gulp Tasks:
 -serve: rebuilds the server with newest files
 -build: uglifies the code for the browser
+
+Needs more work.  I believe all conditions are met except that the website works as expected.  I cannot get my foreach loop to print the response to my html.  Will continue to work on over weekend.  

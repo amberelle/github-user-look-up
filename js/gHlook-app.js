@@ -5,10 +5,12 @@ var apiKey = require('./../.env').apiKey;
 exports.repos = function(){
 };
 
-exports.repos.prototype.getRepos = function(){
-  $.get('https://api.github.com/users/daneden?access_token=' + apiKey).then(function(response){
+exports.repos.prototype.getRepos = function(name, displayRepos){
+  $.get('https://api.github.com/users/' + name + '/repos?access_token=' + apiKey).then(function(response){
     console.log(response);
+
   }).fail(function(error){
-    console.log(error.responseJSON.message);
+    $('.getList').text(error.responseJSON.message);
+    // console.log(error.responseJSON.message);
   });
 };
