@@ -4,19 +4,23 @@ var repos = require('./../js/gHlook-app.js').repos;
 
 
 var displayRepos = function(arrayOfRepos){
-    arrayOfRepos.foreach(function(repo){
-      $('.getList').text(repo.name);
+    arrayOfRepos.forEach(function(repo){
+      if(repo.description){
+      $('.getList').append("<li>" + repo.name + " description: " + repo.description +"</li>");
+      }
+      else {
+          $('.getList').append("<li>" + repo.name +"</li>");
+      }
   });
+
 };
 
-// var displayRepo = function(username, profileInfo) {
-//
-//   $('.getList').text("Username: " + username + "Profile Info:" + profileInfo );
-// }
+
 
 $(document).ready(function() {
   var currentReposObject = new repos();
-  $('#getInfo').click(function() {
+  $('#form').submit(function(event) {
+    event.preventDefault();
     var name = $('#users').val();
     $('#users').val("");
     currentReposObject.getRepos(name, displayRepos);
