@@ -4,13 +4,14 @@ var repos = require('./../js/gHlook-app.js').repos;
 
 
 var displayRepos = function(arrayOfRepos){
-    arrayOfRepos.forEach(function(repo){
-      if(repo.description){
+  $('.getList').html("");
+  arrayOfRepos.forEach(function(repo){
+    if(repo.description){
       $('.getList').append("<li>" + repo.name + " description: " + repo.description +"</li>");
-      }
-      else {
-          $('.getList').append("<li>" + repo.name +"</li>");
-      }
+    }
+    else {
+      $('.getList').append("<li>" + repo.name +"</li>");
+    }
   });
 
 };
